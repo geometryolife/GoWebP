@@ -1,0 +1,100 @@
+* Go 与 Web 应用
+** Main Contents
+   - Web 应用的定义
+   - 使用 Go 语言编写 Web 应用的优点
+   - Web 应用编程的基本知识
+   - 使用 Go 语言编写一个极为简单的 Web 应用
+** 使用 Go 语言构建 Web 应用
+** Web 应用的工作原理
+*** 成为 Web 应用必备的两个条件
+    - 这个程序必须向发送命令请求的客户端返回 HTML，而客户端则会向用户展示渲染后的 HTML
+    - 这个程序在向客户端传送数据时必须使用 HTTP 协议
+*** Web 服务
+    如果一个程序不是向用户渲染并展示 HTML，而是向其他程序返回某种非 HTML 格式的数据，那么这个程序就是一个为其他程序提供服务的 Web 服务。
+** HTTP 请求
+*** 报文 message 的格式
+    - 请求行 request-line
+    - 零个或任意多个请求首部 header
+    - 一个空行
+    - 可选的报文主体 body
+*** 请求方法
+| HTTP Version | New Request method                  | Comment                          |
+|--------------+-------------------------------------+----------------------------------|
+|          0.9 | GET                                 |                                  |
+|          1.0 | POST、HEAD                          |                                  |
+|          1.1 | PUT、DELETE、OPTION、TRACE、CONNECT | 必须实现 GET、HEAD，其他方法可选 |
+
+*** 安全的请求方法
+
+*** 幂等的请求方法
+    方法使用相同的数据进行二次调用不会对服务器的状态造成任何改变。
+    - 幂等的 idempotent
+    - 安全的方法天生幂等
+    - PUT、DELETE 虽不安全，但幂等
+    - POST 既不安全也非幂等
+
+*** 浏览器对请求方法的支持
+
+*** 请求首部
+    - 空行 empty line = 回车 CR + 换行 LF
+    - 大多数 HTTP 请求首部都是可选的，Host 宿主首部字段是 HTTP 1.1 唯一强制要求的首部。
+** HTTP 响应
+*** 响应报文格式
+    - 一个状态行
+      - 状态码 status code
+      - 原因短语 reason phrase
+    - 零个或任意数量的响应首部
+    - 一个空行
+    - 一个可选的报文主体
+*** 响应状态码
+| 状态码类型 | 含义             | 描述 |
+|------------+------------------+------|
+|        1XX | 情报状态码       |      |
+|        2XX | 成功状态码       |      |
+|        3XX | 重定向状态码     |      |
+|        4XX | 客户端错误状态码 |      |
+|        5XX | 服务器错误状态码 |      |
+*** 响应首部
+** URI
+*** URI 的一般格式
+#+BEGIN_SRC web
+<方法名称>:<分层部分>[ ? <查询参数> ] [ # <片段> 】
+#+END_SRC
+*** URL 编码 百分号编码
+    保留字符 -> ASCII 字节值 -> 两位长的十六进制数字 -> 在前面加上一个百分号。
+    - 空格 -> 32 -> 20 -> %20
+** HTTP/2 简介
+   - SPDY/2 协议改进而来
+     - Google 公司开发的用于传输 Web 内容d的网络协议
+   - HTTP 1.x
+     - 纯文本
+     - 方便通过 telnet 来调试
+* Terminology
+| Terminology | FullName                    | Chinese        | Description                                                               |
+|-------------+-----------------------------+----------------+---------------------------------------------------------------------------|
+| HTTP        | Hypertext Transfer Protocol | 超文本传输协议 | HTTP 是一种无状态、由文本构成的请求-响应协议，使用客户端-服务器计算模型。 |
+| CGI         | Common Gateway Interface    | 通用网关接口   |                                                                           |
+| SSI         | server-side includes        | 服务端包含     |                                                                           |
+| URI         | Uniform Resource Identifer  | 统一资源标识符 |                                                                           |
+| URL         | Uniform Resource Location   | 统一资源定位符 |                                                                           |
+| URN         | Uniform Resource Name       | 统一资源名称   |                                                                           |
+| XHR         | XMLHttpRequest              |                | 一系列浏览器 API                                                          |
+
+1. **HTTP**
+	- Hypertext Transfer Protocol
+	- 超文本传输协议
+
+		- HTTP 是一种**无状态、由文本构成的**请求-响应协议，使用客户端-服务器计算模型。
+
+2. **CGI**
+	- Common Gateway Interface
+	- 通用网关接口
+
+3. **SSI**
+	- server-side includes
+	- 服务端包含
+
+4. **URI**
+	- Uniform Resource Identifer
+	- 统一资源标识符
+
