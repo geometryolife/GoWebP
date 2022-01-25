@@ -1,0 +1,30 @@
+* 第4章 处理请求
+** 本章主要内容
+   - 使用 Go 发送请求和响应
+   - 使用 Go 处理 HTML 表单
+   - 使用 ResponseWriter 向客户端回传响应
+   - 使用 cookie 存储信息
+   - 使用 cookie 实现闪现消息
+
+** 请求和响应
+*** Request 结构
+*** 请求 URL
+*** 请求首部
+*** 请求主体
+
+** Go 与 HTML 表单
+*** Form 字段
+*** PostForm 字段
+*** MultipartForm 字段
+*** 文件
+*** 处理带有 JSON 主体的 POST 请求
+
+** ResponseWriter
+
+** cookie
+*** Go 与 cookie
+*** 讲 cookie 发送至浏览器
+*** 从浏览器获取 cookie
+*** 使用 cookie 实现闪现消息
+
+** 小结
